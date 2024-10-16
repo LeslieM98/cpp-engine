@@ -13,6 +13,13 @@ add_library(Engine include/Engine.hpp
         include/Transform3D.hpp
         include/Vector3D.hpp
         src/Transform3D.cpp
+        include/Entity.hpp
+        src/Entity.cpp
+        include/ComponentStorage.hpp
+        include/Component.hpp
+        src/Component.cpp
+        src/ComponentRegister.cpp
+        include/ComponentRegister.hpp
 )
 target_link_libraries(Engine PUBLIC glm::glm-header-only)
 target_link_libraries(Engine PUBLIC spdlog::spdlog_header_only)

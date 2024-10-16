@@ -33,8 +33,3 @@ Transform3D::Transform3D(Vector3D position, Vector3D rotation, Vector3D scale)
         : position(position),
           rotation(rotation),
           scale(scale) {}
-          
-
-bool Transform3D::operator!=(const Transform3D &rhs) const {
-    return !(rhs == *this);
-}
