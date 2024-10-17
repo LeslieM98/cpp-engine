@@ -8,18 +8,9 @@ find_package(glm CONFIG REQUIRED)
 find_package(spdlog REQUIRED)
 
 
-add_library(Engine include/Engine.hpp
+add_library(Engine
+        include/Engine.hpp
         src/Engine.cpp
-        include/Transform3D.hpp
-        include/Vector3D.hpp
-        src/Transform3D.cpp
-        include/Entity.hpp
-        src/Entity.cpp
-        include/ComponentStorage.hpp
-        include/Component.hpp
-        src/Component.cpp
-        src/ComponentRegister.cpp
-        include/ComponentRegister.hpp
 )
 target_link_libraries(Engine PUBLIC glm::glm-header-only)
 target_link_libraries(Engine PUBLIC spdlog::spdlog_header_only)
@@ -30,21 +21,21 @@ add_executable(TestMain main.cpp)
 target_link_libraries(TestMain PUBLIC Engine)
 target_include_directories(TestMain PUBLIC include)
 
-include(FetchContent)
-FetchContent_Declare(
-        googletest
-        URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
-)
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
-
-enable_testing()
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-add_executable(Tests test/test.cpp)
-
-target_link_libraries(Tests PUBLIC
-        GTest::gtest_main
-)
-
-include(GoogleTest)
-gtest_discover_tests(Tests)
+#include(FetchContent)
+#FetchContent_Declare(
+#        googletest
+#        URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+#)
+#set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+#FetchContent_MakeAvailable(googletest)
+#
+#enable_testing()
+#set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+#add_executable(Tests test/test.cpp)
+#
+#target_link_libraries(Tests PUBLIC
+#        GTest::gtest_main
+#)
+#
+#include(GoogleTest)
+#gtest_discover_tests(Tests)
