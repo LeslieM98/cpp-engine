@@ -62,6 +62,11 @@ const float &Position::z() const {
     return this->position[2];
 }
 
+Component::ComponentName Position::getName() {
+    return {"Position"};
+
+}
+
 Health::Health(int max, int current) : Component("Health"), max(max), current(current) {}
 
 int Health::getMax() const {
@@ -70,6 +75,10 @@ int Health::getMax() const {
 
 int Health::getCurrent() const {
     return current;
+}
+
+Component::ComponentName Health::getName() {
+    return {"Health"};
 }
 
 void Engine::resizeComponentStorage() {

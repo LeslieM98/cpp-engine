@@ -25,6 +25,11 @@ int main() {
     std::cout << engine.instanciateEntity(components2) << std::endl;
     std::cout << engine.instanciateEntity(components3) << std::endl;
 
+    SystemFunctor<Position> moveForward([](auto components) {
+        Component *first = components[0];
+        auto *position = dynamic_cast<Position *>(first);
+        position->x()++;
+    });
 
     engine.resizeComponentStorage();
 }
