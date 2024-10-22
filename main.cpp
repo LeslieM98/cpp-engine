@@ -1,5 +1,7 @@
 #include <iostream>
 #include "include/Engine.hpp"
+#include "Component.hpp"
+#include "System.hpp"
 
 using namespace fimbulwinter::engine;
 

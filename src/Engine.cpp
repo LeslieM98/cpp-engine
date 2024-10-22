@@ -3,6 +3,7 @@
 //
 
 #include "Engine.hpp"
+#include "Component.hpp"
 
 using namespace fimbulwinter::engine;
 

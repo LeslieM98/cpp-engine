@@ -11,6 +11,7 @@ find_package(spdlog REQUIRED)
 add_library(Engine
         include/Engine.hpp
         src/Engine.cpp
+        include/System.hpp
 )
 target_link_libraries(Engine PUBLIC glm::glm-header-only)
 target_link_libraries(Engine PUBLIC spdlog::spdlog_header_only)
