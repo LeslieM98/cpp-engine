@@ -27,11 +27,25 @@ int main() {
     std::cout << engine.instanciateEntity(components2) << std::endl;
     std::cout << engine.instanciateEntity(components3) << std::endl;
 
-    SystemFunctor<Position> moveForward([](auto components) {
+    engine.resizeComponentStorage();
+
+    auto moveForward = std::make_unique<SystemFunctor<Position>>([](auto components) {
         Component *first = components[0];
         auto *position = dynamic_cast<Position *>(first);
         position->x()++;
     });
+    auto printPos = std::make_unique<SystemFunctor<Position>>([](auto components) {
+        Component *first = components[0];
+        auto *position = dynamic_cast<Position *>(first);
+        std::cout << position->x() << ", " << position->y() << ", " << position->z() << std::endl;
+    });
 
-    engine.resizeComponentStorage();
+    engine.registerSystem(std::move(moveForward));
+    engine.registerSystem(std::move(printPos));
+
+    engine.tick();
+    engine.tick();
+    engine.tick();
+    engine.tick();
+    engine.tick();
 }

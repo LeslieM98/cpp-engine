@@ -15,7 +15,9 @@
 #include <concepts>
 #include <algorithm>
 #include <functional>
+
 #include "Component.hpp"
+#include "System.hpp"
 
 namespace fimbulwinter::engine {
 
@@ -25,10 +27,15 @@ namespace fimbulwinter::engine {
         using EntityId = int;
     private:
         EntityStorage entities;
+        std::vector<std::unique_ptr<SystemFunctorBase>> systems;
     public:
         void resizeComponentStorage();
 
         EntityId instanciateEntity(std::vector<std::unique_ptr<Component>> &components);
+
+        void registerSystem(std::unique_ptr<SystemFunctorBase> system);
+
+        void tick();
     };
 }
 #endif //FIMBULWINTERENGINE_ENGINE_HPP

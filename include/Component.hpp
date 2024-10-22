@@ -90,7 +90,6 @@ namespace fimbulwinter::engine {
     template<ComponentConcept C, ComponentConcept... Cs>
     std::vector<Component::ComponentName> resolveComponentNames() {
         std::vector<Component::ComponentName> names = {C::getName()};
-
         if constexpr (sizeof...(Cs) == 0) {
             return {names};
         } else {

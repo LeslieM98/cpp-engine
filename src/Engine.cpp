@@ -100,3 +100,40 @@ Engine::EntityId Engine::instanciateEntity(std::vector<std::unique_ptr<Component
     }
     return this->entities.size() - 1;
 }
+
+void Engine::registerSystem(std::unique_ptr<SystemFunctorBase> system) {
+    this->systems.push_back(std::move(system));
+}
+
+void Engine::tick() {
+    for (auto &system: this->systems) {
+        for (auto &entity: this->entities) {
+            std::vector<Component *> componentView(entity.size()); // TODO: Garbage Code
+            for (int i = 0; i < entity.size(); i++) {
+                componentView[i] = entity[i].get();
+            }
+            system->run(componentView);
+        }
+    }
+}
+
+[[nodiscard]] bool SystemFunctorBase::run(const std::vector<Component *> &entityComponents) const {
+    std::vector<Component *> parameters;
+
+    for (const auto &componentName: componentNames) {
+        const auto id = Component::getRegisteredComponents().at(componentName);
+        const auto matchingComponent = entityComponents.at(id);
+        if (entityComponents.at(id)) {
+            parameters.emplace_back(matchingComponent);
+        } else {
+            return false;
+        }
+    }
+
+    system(parameters);
+    return true;
+}
+
+SystemFunctorBase::SystemFunctorBase(const std::vector<Component::ComponentName> &componentNames,
+                                     const std::function<void(const std::vector<Component *> &)> &system)
+        : system(system), componentNames(componentNames) {}
