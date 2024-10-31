@@ -14,6 +14,12 @@ add_library(Engine
         include/System.hpp
         include/Resource.hpp
         src/Resource.cpp
+        include/Position.hpp
+        include/Health.hpp
+        src/Health.cpp
+        src/Position.cpp
+        src/Component.cpp
+        src/System.cpp
 )
 target_link_libraries(Engine PUBLIC glm::glm-header-only)
 target_link_libraries(Engine PUBLIC spdlog::spdlog_header_only)

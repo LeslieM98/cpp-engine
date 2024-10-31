@@ -12,7 +12,6 @@
 #include <memory>
 #include <vector>
 #include <optional>
-#include <array>
 #include <unordered_map>
 #include <string>
 
@@ -47,39 +46,6 @@ namespace fimbulwinter::engine {
 
 
         virtual ~Component() = default;
-    };
-
-    class Position : public virtual Component {
-        std::array<float, 3> position;
-    public:
-        static ComponentName getName();
-
-        Position(float x, float y, float z);
-
-        [[nodiscard]] float &x();
-
-        [[nodiscard]] float &y();
-
-        [[nodiscard]] float &z();
-
-        [[nodiscard]] const float &x() const;
-
-        [[nodiscard]] const float &y() const;
-
-        [[nodiscard]] const float &z() const;
-    };
-
-    class Health : public virtual Component {
-        int max;
-        int current;
-    public:
-        static ComponentName getName();
-
-        Health(int max, int current);
-
-        [[nodiscard]] int getMax() const;
-
-        [[nodiscard]] int getCurrent() const;
     };
 
     template<typename T>

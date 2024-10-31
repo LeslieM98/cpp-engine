@@ -2,6 +2,8 @@
 #include "include/Engine.hpp"
 #include "Component.hpp"
 #include "System.hpp"
+#include "Health.hpp"
+#include "Position.hpp"
 
 using namespace fimbulwinter::engine;
 
