@@ -23,7 +23,8 @@ namespace fimbulwinter::engine {
     public:
         void resizeComponentStorage();
 
-        EntityId instanciateEntity(std::vector<std::unique_ptr<Component>> &components);
+        EntityId instanciateEntity(const std::vector<Component *> components);
+
 
         void registerSystem(std::unique_ptr<SystemFunctorBase> system);
 

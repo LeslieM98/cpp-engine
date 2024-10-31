@@ -9,20 +9,9 @@ using namespace fimbulwinter::engine;
 void Engine::resizeComponentStorage() {
     const auto newSize = Component::getRegisteredComponents().size();
 
-    for (auto &x: Engine::entities) {
-        x.resize(newSize);
+    for (auto &entity: Engine::entities) {
+        entity.resize(newSize);
     }
-}
-
-Engine::EntityId Engine::instanciateEntity(std::vector<std::unique_ptr<Component>> &components) {
-    this->entities.emplace_back();
-    this->resizeComponentStorage();
-    auto &newestEntity = this->entities.back();
-
-    for (auto &component: components) {
-        newestEntity[component->getId()] = std::move(component);
-    }
-    return this->entities.size() - 1;
 }
 
 void Engine::registerSystem(std::unique_ptr<SystemFunctorBase> system) {
@@ -39,6 +28,17 @@ void Engine::tick() {
             system->run(componentView);
         }
     }
+}
+
+Engine::EntityId Engine::instanciateEntity(const std::vector<Component *> components) {
+    this->entities.emplace_back();
+    this->resizeComponentStorage();
+    auto &newestEntity = this->entities.back();
+
+    for (auto &component: components) {
+        newestEntity[component->getId()].reset(component);
+    }
+    return this->entities.size() - 1;
 }
 
 [[nodiscard]] bool SystemFunctorBase::run(const std::vector<Component *> &entityComponents) const {
