@@ -27,10 +27,11 @@ namespace fimbulwinter::engine {
         static registeredComponentType registeredComponents;
         static ComponentId nextId;
 
+        static ComponentId getComponentId(const ComponentName &componentName);
+
         const ComponentName name;
         const ComponentId id;
 
-        static ComponentId getComponentId(const ComponentName &componentName);
 
     public:
 
