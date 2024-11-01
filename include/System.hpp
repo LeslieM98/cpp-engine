@@ -15,7 +15,8 @@ namespace fimbulwinter::engine {
         SystemFunctorBase(const std::vector<Component::ComponentName> &componentNames,
                           const std::function<void(const std::vector<Component *> &)> &system);
 
-    protected:
+        virtual ~SystemFunctorBase() = default;
+
     public:
         [[nodiscard]] bool run(const std::vector<Component *> &entityComponents) const;
     };

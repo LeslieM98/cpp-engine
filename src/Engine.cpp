@@ -14,10 +14,6 @@ void Engine::resizeComponentStorage() {
     }
 }
 
-void Engine::registerSystem(std::unique_ptr<SystemFunctorBase> system) {
-    this->systems.push_back(std::move(system));
-}
-
 void Engine::tick() {
     for (auto &system: this->systems) {
         for (auto &entity: this->entities) {
@@ -25,7 +21,7 @@ void Engine::tick() {
             for (int i = 0; i < entity.size(); i++) {
                 componentView[i] = entity[i].get();
             }
-            system->run(componentView);
+            const auto systemHasRun = system->run(componentView);
         }
     }
 }
@@ -39,6 +35,11 @@ Engine::EntityId Engine::instanciateEntity(const std::vector<Component *> compon
         newestEntity[component->getId()].reset(component);
     }
     return this->entities.size() - 1;
+}
+
+void Engine::registerSystem(SystemFunctorBase *system) {
+    this->systems.emplace_back();
+    this->systems.back().reset(system);
 }
 
 [[nodiscard]] bool SystemFunctorBase::run(const std::vector<Component *> &entityComponents) const {
