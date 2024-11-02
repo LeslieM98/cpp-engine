@@ -15,10 +15,14 @@ namespace fimbulwinter::engine {
     class Engine {
     public:
         using EntityStorage = std::vector<std::vector<std::unique_ptr<Component>>>;
+        using SystemVector = std::vector<std::unique_ptr<SystemFunctorBase>>;
+        using SystemStorage = std::vector<std::vector<SystemVector>>;
         using EntityId = int;
+
     private:
         EntityStorage entities;
-        std::vector<std::unique_ptr<SystemFunctorBase>> systems;
+        SystemStorage systemStorage;
+
     public:
         void resizeComponentStorage();
 

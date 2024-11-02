@@ -1,7 +1,5 @@
 #include <iostream>
 #include "include/Engine.hpp"
-#include "Component.hpp"
-#include "System.hpp"
 #include "Health.hpp"
 #include "Position.hpp"
 
@@ -17,12 +15,12 @@ int main() {
     engine.registerSystem(new SystemFunctor<Position>([](auto components) {
         auto *position = dynamic_cast<Position *>(components.front());
         position->x()++;
-        std::cout << position->x() << ", " << position->y() << ", " << position->z() << std::endl;
     }));
+
     engine.registerSystem(new SystemFunctor<Position>([](auto components) {
         auto *position = dynamic_cast<Position *>(components.front());
         std::cout << position->x() << ", " << position->y() << ", " << position->z() << std::endl;
-    }));
+    }, SubStage::POST));
 
     engine.tick();
     engine.tick();

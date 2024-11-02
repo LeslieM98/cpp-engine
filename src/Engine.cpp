@@ -15,13 +15,19 @@ void Engine::resizeComponentStorage() {
 }
 
 void Engine::tick() {
-    for (auto &system: this->systems) {
-        for (auto &entity: this->entities) {
-            std::vector<Component *> componentView(entity.size()); // TODO: Garbage Code
-            for (int i = 0; i < entity.size(); i++) {
-                componentView[i] = entity[i].get();
+    for (auto &stage: this->systemStorage) {
+        for (auto &subStage: stage) {
+
+            for (auto &system: subStage) {
+                for (auto &entity: this->entities) {
+                    std::vector<Component *> componentView(entity.size()); // TODO: Garbage Code
+                    for (int i = 0; i < entity.size(); i++) {
+                        componentView[i] = entity[i].get();
+                    }
+                    const auto systemHasRun = system->run(componentView);
+                }
             }
-            const auto systemHasRun = system->run(componentView);
+
         }
     }
 }
@@ -38,23 +44,23 @@ Engine::EntityId Engine::instanciateEntity(const std::vector<Component *> compon
 }
 
 void Engine::registerSystem(SystemFunctorBase *system) {
-    this->systems.emplace_back();
-    this->systems.back().reset(system);
-}
+    const Stage stage = system->getStage();
+    const SubStage subStage = system->getSubStage();
 
-[[nodiscard]] bool SystemFunctorBase::run(const std::vector<Component *> &entityComponents) const {
-    std::vector<Component *> parameters;
+    const auto stageIdx = static_cast<int>(stage);
+    const auto subStageIdx = static_cast<int>(subStage);
+    const auto stageCount = stageIdx + 1;
+    const auto subStageCount = subStageIdx + 1;
 
-    for (const auto &componentName: componentNames) {
-        const auto id = Component::getRegisteredComponents().at(componentName);
-        const auto matchingComponent = entityComponents.at(id);
-        if (entityComponents.at(id)) {
-            parameters.emplace_back(matchingComponent);
-        } else {
-            return false;
-        }
+    if (this->systemStorage.size() < stageCount) {
+        this->systemStorage.resize(stageCount);
     }
+    if (this->systemStorage[stageIdx].size() < subStageCount) {
+        this->systemStorage[stageIdx].resize(subStageCount);
+    }
+    this->systemStorage[stageIdx].reserve(subStageIdx + 1);
 
-    system(parameters);
-    return true;
+    this->systemStorage[stageIdx][subStageIdx].emplace_back(system);
 }
+
+
