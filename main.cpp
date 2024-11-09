@@ -24,4 +24,7 @@ int main() {
 
     engine.tick();
     engine.tick();
+
+    engine.run();
+
 }

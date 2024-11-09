@@ -2,7 +2,12 @@
 // Created by Leslie on 13.10.2024.
 //
 
+#include <chrono>
+#include <thread>
+
+
 #include "Engine.hpp"
+#include "Window.hpp"
 
 using namespace fimbulwinter::engine;
 
@@ -61,6 +66,14 @@ void Engine::registerSystem(SystemFunctorBase *system) {
     this->systemStorage[stageIdx].reserve(subStageIdx + 1);
 
     this->systemStorage[stageIdx][subStageIdx].emplace_back(system);
+}
+
+void Engine::run() {
+
+    const auto &window = Window::getInstance();
+    while (true) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
 }
 
 

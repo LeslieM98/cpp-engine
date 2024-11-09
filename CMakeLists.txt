@@ -10,6 +10,8 @@ find_package(spdlog REQUIRED)
 find_package(glfw3 3.3 REQUIRED)
 find_package(OpenGL REQUIRED)
 
+add_subdirectory(dependencies/glad)
+
 
 add_library(Engine
         include/Engine.hpp
@@ -23,14 +25,19 @@ add_library(Engine
         src/Position.cpp
         src/Component.cpp
         src/System.cpp
+        include/Window.hpp
+        src/Window.cpp
 )
 target_link_libraries(Engine PUBLIC glm::glm-header-only)
 target_link_libraries(Engine PUBLIC spdlog::spdlog_header_only)
+target_link_libraries(Engine PUBLIC glad)
+target_link_libraries(Engine PUBLIC glfw)
 target_include_directories(Engine PUBLIC include)
 
 
 add_executable(TestMain main.cpp)
 target_link_libraries(TestMain PUBLIC Engine)
+target_link_libraries(TestMain PUBLIC glad)
 target_include_directories(TestMain PUBLIC include)
 
 #include(FetchContent)

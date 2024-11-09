@@ -32,6 +32,8 @@ namespace fimbulwinter::engine {
 
 
         void tick();
+
+        void run();
     };
 }
 #endif //FIMBULWINTERENGINE_ENGINE_HPP
