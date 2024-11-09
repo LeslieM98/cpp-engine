@@ -1,7 +1,7 @@
 #include <iostream>
 #include "include/Engine.hpp"
-#include "Health.hpp"
-#include "Position.hpp"
+#include "include/Health.hpp"
+#include "include/Position.hpp"
 
 using namespace fimbulwinter::engine;
 

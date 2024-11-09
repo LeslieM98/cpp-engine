@@ -2,6 +2,8 @@
   "dependencies": [
     "glm",
     "spdlog",
-    "gtest"
+    "gtest",
+    "glfw3",
+    "opengl"
   ]
 }

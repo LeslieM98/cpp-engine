@@ -1,11 +1,14 @@
 cmake_minimum_required(VERSION 3.29)
 project(FimbulwinterEngine)
+
 set(CMAKE_CXX_STANDARD 20)
 
-#include(E:/Repos/vcpkg/scripts/buildsystems/vcpkg.cmake)
+#include(vcpkg_aaaa.json)
 
 find_package(glm CONFIG REQUIRED)
 find_package(spdlog REQUIRED)
+find_package(glfw3 3.3 REQUIRED)
+find_package(OpenGL REQUIRED)
 
 
 add_library(Engine

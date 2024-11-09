@@ -5,6 +5,8 @@
 #ifndef FIMBULWINTERENGINE_POSITION_HPP
 #define FIMBULWINTERENGINE_POSITION_HPP
 
+#include <array>
+
 #include "Component.hpp"
 
 namespace fimbulwinter::engine {
