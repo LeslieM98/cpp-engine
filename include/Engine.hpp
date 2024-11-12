@@ -11,6 +11,7 @@
 
 #include "Component.hpp"
 #include "System.hpp"
+#include "Window.hpp"
 
 namespace fimbulwinter::engine {
     class Engine {
@@ -24,6 +25,7 @@ namespace fimbulwinter::engine {
         EntityStorage entities;
         SystemStorage systemStorage;
         std::optional<std::jthread> workerThread;
+        Window window;
 
     public:
         void resizeComponentStorage();

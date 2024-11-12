@@ -26,9 +26,6 @@ namespace fimbulwinter::engine {
 
 
     public:
-        static Window &getInstance();
-
-        static void terminate();
 
         Window();
 

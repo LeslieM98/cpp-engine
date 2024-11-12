@@ -9,14 +9,6 @@
 
 using namespace fimbulwinter::engine;
 
-std::unique_ptr<Window> Window::instance = std::make_unique<Window>();
-
-Window &Window::getInstance() {
-    if (Window::instance) {
-        return *Window::instance;
-    }
-}
-
 Window::Window() {
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -33,10 +25,6 @@ Window::Window() {
         std::cout << "Failed to initialize GLAD" << std::endl;
     }
     glViewport(0, 0, 800, 600);
-}
-
-void Window::terminate() {
-    instance = nullptr;
 }
 
 Window::~Window() {

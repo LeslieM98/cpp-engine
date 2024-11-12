@@ -30,5 +30,4 @@ int main() {
     engine.run();
     std::this_thread::sleep_for(2s);
     engine.terminate();
-    Window::terminate();
 }
