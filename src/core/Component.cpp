@@ -11,7 +11,7 @@ Component::ComponentId Component::nextId{};
 
 Component::Component(std::string name) : name(std::move(name)), id(Component::getComponentId(this->name)) {}
 
-const std::string &Component::getName() const {
+const std::string &Component::getComponentName() const {
     return name;
 }
 

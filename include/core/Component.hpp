@@ -33,7 +33,7 @@ namespace fimbulwinter::engine::core {
 
         explicit Component(std::string name);
 
-        [[nodiscard]] const ComponentName &getName() const;
+        [[nodiscard]] const ComponentName &getComponentName() const;
 
         [[nodiscard]] ComponentId getId() const;
 
