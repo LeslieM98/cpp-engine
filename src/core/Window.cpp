@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-#include "Window.hpp"
+#include "core/Window.hpp"
 
 
 using namespace fimbulwinter::engine;

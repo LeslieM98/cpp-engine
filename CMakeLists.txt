@@ -14,26 +14,23 @@ add_subdirectory(dependencies/glad)
 
 
 add_library(Engine
-        include/Engine.hpp
-        src/Engine.cpp
-        include/System.hpp
-        include/Resource.hpp
-        src/Resource.cpp
-        include/Position.hpp
-        include/Health.hpp
-        src/Health.cpp
-        src/Position.cpp
-        src/Component.cpp
-        src/System.cpp
-        include/Window.hpp
-        src/Window.cpp
+        include/core/Engine.hpp
+        src/core/Engine.cpp
+        include/core/System.hpp
+        include/components/Position.hpp
+        include/components/Health.hpp
+        src/components/Health.cpp
+        src/components/Position.cpp
+        src/core/Component.cpp
+        src/core/System.cpp
+        include/core/Window.hpp
+        src/core/Window.cpp
 )
 target_link_libraries(Engine PUBLIC glm::glm-header-only)
 target_link_libraries(Engine PUBLIC spdlog::spdlog_header_only)
 target_link_libraries(Engine PUBLIC glad)
 target_link_libraries(Engine PUBLIC glfw)
 target_include_directories(Engine PUBLIC include)
-
 
 add_executable(TestMain main.cpp)
 target_link_libraries(TestMain PUBLIC Engine)

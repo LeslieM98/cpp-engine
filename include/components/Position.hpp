@@ -7,7 +7,7 @@
 
 #include <array>
 
-#include "Component.hpp"
+#include "core/Component.hpp"
 
 namespace fimbulwinter::engine {
     class Position : public virtual Component {

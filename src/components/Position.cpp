@@ -2,7 +2,7 @@
 // Created by Leslie on 31.10.2024.
 //
 
-#include "Position.hpp"
+#include "components/Position.hpp"
 
 using namespace fimbulwinter::engine;
 

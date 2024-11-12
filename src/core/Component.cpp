@@ -2,7 +2,7 @@
 // Created by Leslie on 31.10.2024.
 //
 
-#include "Component.hpp"
+#include "core/Component.hpp"
 
 using namespace fimbulwinter::engine;
 

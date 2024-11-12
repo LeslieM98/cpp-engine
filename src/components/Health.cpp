@@ -1,7 +1,7 @@
 //
 // Created by Leslie on 31.10.2024.
 //
-#include "Health.hpp"
+#include "components/Health.hpp"
 
 using namespace fimbulwinter::engine;
 

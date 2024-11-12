@@ -6,8 +6,8 @@
 #define FIMBULWINTERENGINE_ENGINE_HPP
 
 #include <vector>
-#include <memory>
 #include <thread>
+#include <optional>
 
 #include "Component.hpp"
 #include "System.hpp"

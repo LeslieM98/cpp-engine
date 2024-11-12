@@ -5,7 +5,9 @@
 #ifndef FIMBULWINTERENGINE_SYSTEM_HPP
 #define FIMBULWINTERENGINE_SYSTEM_HPP
 
-#include "Component.hpp"
+#include <functional>
+
+#include "core/Component.hpp"
 
 namespace fimbulwinter::engine {
 
