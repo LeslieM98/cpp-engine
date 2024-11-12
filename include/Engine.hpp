@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <memory>
+#include <thread>
 
 #include "Component.hpp"
 #include "System.hpp"
@@ -22,6 +23,7 @@ namespace fimbulwinter::engine {
     private:
         EntityStorage entities;
         SystemStorage systemStorage;
+        std::optional<std::jthread> workerThread;
 
     public:
         void resizeComponentStorage();
@@ -34,6 +36,8 @@ namespace fimbulwinter::engine {
         void tick();
 
         void run();
+
+        void terminate();
     };
 }
 #endif //FIMBULWINTERENGINE_ENGINE_HPP

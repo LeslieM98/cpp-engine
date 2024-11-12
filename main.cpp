@@ -1,9 +1,11 @@
 #include <iostream>
 #include "include/Engine.hpp"
+#include "Window.hpp"
 #include "include/Health.hpp"
 #include "include/Position.hpp"
 
 using namespace fimbulwinter::engine;
+using namespace std::chrono_literals;
 
 int main() {
     Engine engine;
@@ -26,5 +28,7 @@ int main() {
     engine.tick();
 
     engine.run();
-
+    std::this_thread::sleep_for(2s);
+    engine.terminate();
+    Window::terminate();
 }

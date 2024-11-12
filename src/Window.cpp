@@ -12,7 +12,9 @@ using namespace fimbulwinter::engine;
 std::unique_ptr<Window> Window::instance = std::make_unique<Window>();
 
 Window &Window::getInstance() {
-    return *Window::instance;
+    if (Window::instance) {
+        return *Window::instance;
+    }
 }
 
 Window::Window() {
@@ -33,3 +35,10 @@ Window::Window() {
     glViewport(0, 0, 800, 600);
 }
 
+void Window::terminate() {
+    instance = nullptr;
+}
+
+Window::~Window() {
+    glfwTerminate();
+}

@@ -3,11 +3,9 @@
 //
 
 #include <chrono>
-#include <thread>
 
 
 #include "Engine.hpp"
-#include "Window.hpp"
 
 using namespace fimbulwinter::engine;
 
@@ -69,11 +67,15 @@ void Engine::registerSystem(SystemFunctorBase *system) {
 }
 
 void Engine::run() {
+    workerThread = std::jthread([this](std::stop_token stopToken) {
+        while (!stopToken.stop_requested()) {
+            this->tick();
+        }
+    });
+}
 
-    const auto &window = Window::getInstance();
-    while (true) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    }
+void Engine::terminate() {
+    this->workerThread->request_stop();
 }
 
 

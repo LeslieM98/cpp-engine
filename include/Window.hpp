@@ -28,11 +28,15 @@ namespace fimbulwinter::engine {
     public:
         static Window &getInstance();
 
+        static void terminate();
+
         Window();
 
         Window(Window &&o) = delete;
 
         Window(const Window &o) = delete;
+
+        ~Window();
     };
 }
 
