@@ -5,17 +5,12 @@
 #ifndef FIMBULWINTERENGINE_COMPONENT_HPP
 #define FIMBULWINTERENGINE_COMPONENT_HPP
 
-#include <functional>
-#include <algorithm>
 #include <concepts>
-#include <iostream>
 #include <memory>
-#include <vector>
-#include <optional>
 #include <unordered_map>
 #include <string>
 
-namespace fimbulwinter::engine {
+namespace fimbulwinter::engine::core {
     class Component {
     public:
         using ComponentName = std::string;

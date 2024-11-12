@@ -7,10 +7,10 @@
 
 #include <array>
 
-#include "Component.hpp"
+#include "core/Component.hpp"
 
-namespace fimbulwinter::engine {
-    class Position : public virtual Component {
+namespace fimbulwinter::engine::component {
+    class Position : public virtual core::Component {
         std::array<float, 3> position;
     public:
         static ComponentName getName();

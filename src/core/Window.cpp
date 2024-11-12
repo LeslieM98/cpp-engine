@@ -4,10 +4,10 @@
 #include <iostream>
 
 
-#include "Window.hpp"
+#include "core/Window.hpp"
 
 
-using namespace fimbulwinter::engine;
+using namespace fimbulwinter::engine::core;
 
 Window::Window() {
     glfwInit();

@@ -1,10 +1,11 @@
 #include <iostream>
-#include "include/Engine.hpp"
-#include "Window.hpp"
-#include "include/Health.hpp"
-#include "include/Position.hpp"
+#include "core/Engine.hpp"
+#include "core/Window.hpp"
+#include "component/Health.hpp"
+#include "component/Position.hpp"
 
-using namespace fimbulwinter::engine;
+using namespace fimbulwinter::engine::component;
+using namespace fimbulwinter::engine::core;
 using namespace std::chrono_literals;
 
 int main() {
@@ -23,9 +24,6 @@ int main() {
         auto *position = dynamic_cast<Position *>(components.front());
         std::cout << position->x() << ", " << position->y() << ", " << position->z() << std::endl;
     }, SubStage::POST));
-
-    engine.tick();
-    engine.tick();
 
     engine.run();
     std::this_thread::sleep_for(2s);

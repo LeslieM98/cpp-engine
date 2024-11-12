@@ -2,9 +2,10 @@
 // Created by Leslie on 31.10.2024.
 //
 
-#include "Position.hpp"
+#include "component/Position.hpp"
 
-using namespace fimbulwinter::engine;
+using namespace fimbulwinter::engine::component;
+using namespace fimbulwinter::engine::core;
 
 Position::Position(float x, float y, float z) : Component("Position"), position({x, y, z}) {
 }

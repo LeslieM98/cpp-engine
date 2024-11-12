@@ -2,9 +2,9 @@
 // Created by Leslie on 31.10.2024.
 //
 
-#include "Component.hpp"
+#include "core/Component.hpp"
 
-using namespace fimbulwinter::engine;
+using namespace fimbulwinter::engine::core;
 
 std::unordered_map<Component::ComponentName, Component::ComponentId> Component::registeredComponents;
 Component::ComponentId Component::nextId{};

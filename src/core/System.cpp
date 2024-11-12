@@ -2,9 +2,9 @@
 // Created by Leslie on 31.10.2024.
 //
 
-#include "System.hpp"
+#include "core/System.hpp"
 
-using namespace fimbulwinter::engine;
+using namespace fimbulwinter::engine::core;
 
 SystemFunctorBase::SystemFunctorBase(const std::vector<Component::ComponentName> &componentNames,
                                      const std::function<void(const std::vector<Component *> &)> &system,

@@ -5,9 +5,11 @@
 #ifndef FIMBULWINTERENGINE_SYSTEM_HPP
 #define FIMBULWINTERENGINE_SYSTEM_HPP
 
-#include "Component.hpp"
+#include <functional>
 
-namespace fimbulwinter::engine {
+#include "core/Component.hpp"
+
+namespace fimbulwinter::engine::core {
 
     enum class Stage : int {
         LOGIC, RENDER,

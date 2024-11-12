@@ -5,10 +5,10 @@
 #ifndef FIMBULWINTERENGINE_HEALTH_HPP
 #define FIMBULWINTERENGINE_HEALTH_HPP
 
-#include "Component.hpp"
+#include "core/Component.hpp"
 
-namespace fimbulwinter::engine {
-    class Health : public virtual Component {
+namespace fimbulwinter::engine::component {
+    class Health : public virtual core::Component {
         int max;
         int current;
     public:

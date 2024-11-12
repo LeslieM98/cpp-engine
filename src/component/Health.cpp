@@ -1,9 +1,10 @@
 //
 // Created by Leslie on 31.10.2024.
 //
-#include "Health.hpp"
+#include "component/Health.hpp"
 
-using namespace fimbulwinter::engine;
+using namespace fimbulwinter::engine::component;
+using namespace fimbulwinter::engine::core;
 
 Health::Health(int max, int current) : Component("Health"), max(max), current(current) {}
 

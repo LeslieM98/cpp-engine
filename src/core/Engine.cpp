@@ -2,12 +2,9 @@
 // Created by Leslie on 13.10.2024.
 //
 
-#include <chrono>
+#include "core/Engine.hpp"
 
-
-#include "Engine.hpp"
-
-using namespace fimbulwinter::engine;
+using namespace fimbulwinter::engine::core;
 
 void Engine::resizeComponentStorage() {
     const auto newSize = Component::getRegisteredComponents().size();

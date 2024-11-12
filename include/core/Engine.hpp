@@ -6,14 +6,14 @@
 #define FIMBULWINTERENGINE_ENGINE_HPP
 
 #include <vector>
-#include <memory>
 #include <thread>
+#include <optional>
 
-#include "Component.hpp"
-#include "System.hpp"
-#include "Window.hpp"
+#include "core/Component.hpp"
+#include "core/System.hpp"
+#include "core/Window.hpp"
 
-namespace fimbulwinter::engine {
+namespace fimbulwinter::engine::core {
     class Engine {
     public:
         using EntityStorage = std::vector<std::vector<std::unique_ptr<Component>>>;
