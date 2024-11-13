@@ -45,13 +45,12 @@ namespace fimbulwinter::engine::core {
 
     template<typename T>
     concept ComponentConcept =requires(T t) {
-        { T::getName() } -> std::convertible_to<Component::ComponentName>;
         requires std::is_base_of_v<Component, T>;
     };
 
     template<ComponentConcept C, ComponentConcept... Cs>
     std::vector<Component::ComponentName> resolveComponentNames() {
-        std::vector<Component::ComponentName> names = {C::getName()};
+        std::vector<Component::ComponentName> names = {typeid(C).name()};
         if constexpr (sizeof...(Cs) == 0) {
             return {names};
         } else {

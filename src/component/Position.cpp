@@ -7,7 +7,7 @@
 using namespace fimbulwinter::engine::component;
 using namespace fimbulwinter::engine::core;
 
-Position::Position(float x, float y, float z) : Component("Position"), position({x, y, z}) {
+Position::Position(float x, float y, float z) : Component(typeid(Position).name()), position({x, y, z}) {
 }
 
 float &Position::x() {

@@ -6,7 +6,7 @@
 using namespace fimbulwinter::engine::component;
 using namespace fimbulwinter::engine::core;
 
-Health::Health(int max, int current) : Component("Health"), max(max), current(current) {}
+Health::Health(int max, int current) : Component(typeid(Health).name()), max(max), current(current) {}
 
 int Health::getMax() const {
     return max;
