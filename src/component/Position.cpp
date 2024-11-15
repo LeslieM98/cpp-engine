@@ -2,7 +2,11 @@
 // Created by Leslie on 31.10.2024.
 //
 
+<<<<<<<< HEAD:src/component/Position.cpp
 #include "component/Position.hpp"
+========
+#include "components/Position.hpp"
+>>>>>>>> 354d66004a1f79e0a83f252265d6b653d7118b04:src/components/Position.cpp
 
 using namespace fimbulwinter::engine::component;
 using namespace fimbulwinter::engine::core;

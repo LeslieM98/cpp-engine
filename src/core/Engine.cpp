@@ -4,7 +4,11 @@
 
 #include "core/Engine.hpp"
 
+<<<<<<< HEAD
 using namespace fimbulwinter::engine::core;
+=======
+using namespace fimbulwinter::engine;
+>>>>>>> 354d66004a1f79e0a83f252265d6b653d7118b04
 
 void Engine::resizeComponentStorage() {
     const auto newSize = Component::getRegisteredComponents().size();

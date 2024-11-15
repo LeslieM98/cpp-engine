@@ -6,6 +6,11 @@
 #define FIMBULWINTERENGINE_SYSTEM_HPP
 
 #include <functional>
+<<<<<<< HEAD
+=======
+
+#include "core/Component.hpp"
+>>>>>>> 354d66004a1f79e0a83f252265d6b653d7118b04
 
 #include "core/Component.hpp"
 
