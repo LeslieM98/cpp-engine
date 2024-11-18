@@ -3,8 +3,6 @@ project(FimbulwinterEngine)
 
 set(CMAKE_CXX_STANDARD 20)
 
-#include(vcpkg_aaaa.json)
-
 find_package(glm CONFIG REQUIRED)
 find_package(spdlog REQUIRED)
 find_package(glfw3 3.3 REQUIRED)
@@ -26,7 +24,7 @@ add_library(Engine
         include/core/Window.hpp
         src/core/Window.cpp
 )
-target_link_libraries(Engine PUBLIC glm::glm-header-only)
+target_link_libraries(Engine PUBLIC glm::glm)
 target_link_libraries(Engine PUBLIC spdlog::spdlog_header_only)
 target_link_libraries(Engine PUBLIC glad)
 target_link_libraries(Engine PUBLIC glfw)

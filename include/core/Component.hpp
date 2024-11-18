@@ -9,6 +9,7 @@
 #include <memory>
 #include <unordered_map>
 #include <string>
+#include <vector>
 
 namespace fimbulwinter::engine::core {
     class Component {
@@ -32,6 +33,11 @@ namespace fimbulwinter::engine::core {
         static const registeredComponentType &getRegisteredComponents();
 
         explicit Component(std::string name);
+
+        Component(Component &&) = default;
+
+        Component(const Component &) = default;
+
 
         [[nodiscard]] const ComponentName &getComponentName() const;
 

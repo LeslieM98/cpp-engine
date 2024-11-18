@@ -16,6 +16,10 @@ namespace fimbulwinter::engine::component {
 
         Health(int max, int current);
 
+        Health(Health &&) = default;
+
+        Health(const Health &other) = default;
+
         [[nodiscard]] int getMax() const;
 
         [[nodiscard]] int getCurrent() const;

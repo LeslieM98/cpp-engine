@@ -17,6 +17,10 @@ namespace fimbulwinter::engine::component {
 
         Position(float x, float y, float z);
 
+        Position(Position &&other) = default;
+
+        Position(const Position &other) = default;
+
         [[nodiscard]] float &x();
 
         [[nodiscard]] float &y();
